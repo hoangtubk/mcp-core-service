@@ -9,7 +9,7 @@
         public static string URL_XSKT_XSMB = "https://xskt.com.vn/rss-feed/";
         
         // https://home.openweathermap.org/api_keys
-        public static string API_KEY_WEATHER_MAP = Environment.GetEnvironmentVariable("API_KEY") ?? "key_default"; 
+        public static string API_KEY_WEATHER_MAP = "key_default"; 
 
         public class AU_UNIT
         {
