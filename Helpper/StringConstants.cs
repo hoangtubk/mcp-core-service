@@ -8,7 +8,8 @@
         public static string URL_COIN_BASE = "https://api.coinbase.com/v2/";
         public static string URL_XSKT_XSMB = "https://xskt.com.vn/rss-feed/";
         
-        public static string API_KEY = "your_api_key"; //https://home.openweathermap.org/api_keys
+        // https://home.openweathermap.org/api_keys
+        public static string API_KEY_WEATHER_MAP = Environment.GetEnvironmentVariable("API_KEY") ?? "key_default"; 
 
         public class AU_UNIT
         {

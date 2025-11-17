@@ -349,7 +349,7 @@ namespace mcp_core_service.Services.Implement
             }
             // Bước 2: Sử dụng openweathermap - day_summary để lấy dữ liệu thời tiết
             // Gọi GET đến Daily Aggregation truyền vào tọa độ và ngày cần lấy dữ liệu
-            string urlOpenWeatherMap = $"{URL_OPEN_WEATHER_MAP}day_summary?lat={latitude}&lon={longitude}&date={date}&units=metric&appid={API_KEY}";
+            string urlOpenWeatherMap = $"{URL_OPEN_WEATHER_MAP}day_summary?lat={latitude}&lon={longitude}&date={date}&units=metric&appid={API_KEY_WEATHER_MAP}";
             using var httpClientWeather = new HttpClient();
             try
             {
