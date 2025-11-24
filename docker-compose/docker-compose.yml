@@ -1,9 +1,9 @@
 services:
   mcp-core-service:
-    image: hoangtubk/mcp-core-service:1.0.0
+    image: hoangtubk/mcp-core-service:lastest
     container_name: mcp-core-service
     environment:
-      - API_KEY_WEATHER_MAP=03b5fa609f4eae30b6d49915ee0baffd
+      - API_KEY_WEATHER_MAP=your_api_key_here
     restart: always
     ports:
       - "8026:8026"
