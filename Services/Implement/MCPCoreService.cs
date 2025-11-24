@@ -417,7 +417,6 @@ namespace mcp_core_service.Services.Implement
                 string artist = song.AllArtistsNames;
                 long duration = song.Duration;
                 string fullUrl = song.FullUrl;
-                LyricData lyrics = await client.Songs.GetLyricsAsync(fullUrl);
 
                 StreamResult audioStreamResult = new StreamResult
                 {
@@ -427,7 +426,6 @@ namespace mcp_core_service.Services.Implement
                     Artist = artist,
                     FullUrl = fullUrl,
                     Duration = duration,
-                    //lyrics = lyrics
                 };
 
                 return new StreamResponse("Thành công", 200, audioStreamResult);
@@ -435,6 +433,25 @@ namespace mcp_core_service.Services.Implement
             catch (Exception ex)
             {
                 throw new BusinessException($"Error streaming music: {ex.Message}");
+            }
+        }
+
+        public async Task<LyricResponse> GetLyrics(string id)
+        {
+            try
+            {
+                var client = new ZingMP3Client();
+                await client.InitializeAsync();
+
+                string audioStreamUrl = await client.Songs.GetAudioStreamUrlAsync(id, AudioQuality.Best);
+                Song song = await client.Songs.GetAsync(id);
+                LyricData lyrics = await client.Songs.GetLyricsAsync(song.FullUrl);
+
+                return new LyricResponse("Thành công", 200, lyrics);
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException($"Error get lyrics: {ex.Message}");
             }
         }
     }

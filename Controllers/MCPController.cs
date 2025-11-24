@@ -28,6 +28,13 @@ namespace mcp_core_service.Controllers
             return response;
         }
 
+        [HttpGet("get_lyrics")]
+        public async Task<LyricResponse> GetLyrics([FromQuery] string id)
+        {
+            LyricResponse response = await _mcpCoreService.GetLyrics(id);
+            return response;
+        }
+
         [HttpGet("get_weather")]
         public async Task<OpenWeatherMapResponse> GetWeather([FromQuery] string location, [FromQuery] string date)
         {

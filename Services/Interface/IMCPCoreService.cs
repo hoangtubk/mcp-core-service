@@ -6,6 +6,7 @@ namespace mcp_core_service.Services.Interface
     {
         Task<MusicResponse> SearchMusic(string keyword);
         Task<StreamResponse> StreamMusic(string id);
+        Task<LyricResponse> GetLyrics(string id);
         Task<OpenWeatherMapResponse> GetWeather(string location, string date);
         Task<AuPriceResponse> GetAuPrice(string trademark, string? type);
         Task<CoinPriceResponse> GetCoinPrice(string coinId, string? currency);
