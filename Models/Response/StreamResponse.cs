@@ -12,7 +12,7 @@ namespace mcp_core_service.Models.Response
             public required string Artist { get; set; }
             public required string FullUrl { get; set; }
             public long Duration { get; set; }
-            public LyricData? lyrics { get; set; }
+            public required string LyricUrl { get; set; }
         }
         public StreamResult result { get; set; }
 

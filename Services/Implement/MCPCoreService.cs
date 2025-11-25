@@ -417,7 +417,8 @@ namespace mcp_core_service.Services.Implement
                 string artist = song.AllArtistsNames;
                 long duration = song.Duration;
                 string fullUrl = song.FullUrl;
-
+                LyricData lyrics = await client.Songs.GetLyricsAsync(fullUrl);
+                string lyricUrl = lyrics != null ? lyrics.File : "";
                 StreamResult audioStreamResult = new StreamResult
                 {
                     Id = id,
@@ -426,6 +427,7 @@ namespace mcp_core_service.Services.Implement
                     Artist = artist,
                     FullUrl = fullUrl,
                     Duration = duration,
+                    LyricUrl = lyricUrl
                 };
 
                 return new StreamResponse("Thành công", 200, audioStreamResult);
