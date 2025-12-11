@@ -7,9 +7,6 @@
         public static string URL_AU_BTMC = "http://api.btmc.vn/api/BTMCAPI/getpricebtmc?key=3kd8ub1llcg9t45hnoh8hmn7t5kc2v";
         public static string URL_COIN_BASE = "https://api.coinbase.com/v2/";
         public static string URL_XSKT_XSMB = "https://xskt.com.vn/rss-feed/";
-        
-        // https://home.openweathermap.org/api_keys
-        public static string API_KEY_WEATHER_MAP = "key_default"; 
 
         public class AU_UNIT
         {

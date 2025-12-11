@@ -1,4 +1,5 @@
-﻿using mcp_core_service.Middlewares;
+﻿using mcp_core_service.Helpper;
+using mcp_core_service.Middlewares;
 using mcp_core_service.Models.Response;
 using mcp_core_service.Services.Interface;
 using Newtonsoft.Json;
@@ -17,6 +18,11 @@ namespace mcp_core_service.Services.Implement
 {
     public class MCPCoreService : IMCPCoreService
     {
+        private readonly APIKeysOptions _options;
+        public MCPCoreService(Microsoft.Extensions.Options.IOptions<APIKeysOptions> options)
+        {
+            _options = options.Value;
+        }
         private static string SanitizeResponse(string input)
         {
             if (string.IsNullOrEmpty(input)) return input;
@@ -349,7 +355,7 @@ namespace mcp_core_service.Services.Implement
             }
             // Bước 2: Sử dụng openweathermap - day_summary để lấy dữ liệu thời tiết
             // Gọi GET đến Daily Aggregation truyền vào tọa độ và ngày cần lấy dữ liệu
-            string apiKey = Environment.GetEnvironmentVariable("API_KEY_WEATHER_MAP") ?? API_KEY_WEATHER_MAP;
+            string apiKey = _options.API_KEY_WEATHER_MAP;
             string urlOpenWeatherMap = $"{URL_OPEN_WEATHER_MAP}day_summary?lat={latitude}&lon={longitude}&date={date}&units=metric&appid={apiKey}";
             using var httpClientWeather = new HttpClient();
             try

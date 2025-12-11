@@ -3,7 +3,11 @@ services:
     image: hoangtubk/mcp-core-service:lastest
     container_name: mcp-core-service
     environment:
-      - API_KEY_WEATHER_MAP=your_api_key_here
+      - APIKeysOptions__API_KEY_WEATHER_MAP=your_api_key_here
+      - BasicAuthOptions__Username=admin
+      - BasicAuthOptions__Password=your_password_here
+      - TuyaOptions__ClientId=your_client_id_here
+      - TuyaOptions__Secret=your_secret 
     restart: always
     ports:
       - "8026:8026"
